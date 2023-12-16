@@ -5,7 +5,8 @@ from nltk.tokenize import sent_tokenize
 import string
 import collections as ct
 
-# Lijsten die bedoeld zijn om statistieken op te slaan
+# Deze variabelen zijn lijsten die bedoeld zijn om statistieken op te slaan
+# De variabelen diff_woordenNYA en diff_tekensNYA zijn bedoeld om een verschil in woorden en tekens te berekenen tussen non YA-boeken
 aantal_woorden_NYA = []
 aantal_zinnen_NYA = []
 speciale_tekens_NYA = []
