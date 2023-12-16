@@ -1,0 +1,55 @@
+#Code voor Non-YA boeken
+
+# Hier ook weer voor het bepalen van zinslengte, aantal woorden en interpunctie
+from nltk.tokenize import sent_tokenize
+import string
+import collections as ct
+
+aantal_woorden_NYA = []
+aantal_zinnen_NYA = []
+speciale_tekens_NYA = []
+diff_woordenNYA = []
+diff_tekensNYA = []
+
+for x in categorieNYA:
+    file = Path.cwd() / categorie[1] / x
+    with open(file, 'r', encoding="utf8") as text:
+        textfile = text.read()
+        
+    # Lastig om tekst op te schonen, aangezien sommige boeken "Hoofdstuk" hanteren en sommige alleen het nummer. Dit is 
+    # niet uit te sluiten, omdat de kans hoog is dat je te veel van de tekst verwijdert.
+    # ISBN is een van de weinige overeenkomsten tussen alle boeken, daarom is dit prima uit te sluiten.
+    
+    # TEKSTVERWERKING: Verwijder ISBN uit iedere tekst
+    textfile.replace('ISBN', '')
+
+    # Tel het aantal woorden in de textfile
+    aantal_woorden = len(textfile.split())
+#     print("Het aantal woorden is:", aantal_woorden)
+    aantal_woorden_NYA.append(aantal_woorden)
+
+    # Tel het aantal zinnen in de textfile
+    aantal_zinnen = len(sent_tokenize(textfile))
+#     print("Het aantal zinnen is:", aantal_zinnen)
+    aantal_zinnen_NYA.append(aantal_zinnen)
+
+    # Tel het aantal speciale tekens in de textfile
+    special_chars = string.punctuation
+    aantal_spec_tekens = sum(v for k, v in ct.Counter(textfile).items() if k in special_chars)
+#     print("Het aantal speciale tekens is: ", aantal_spec_tekens)
+    speciale_tekens_NYA.append(aantal_spec_tekens)
+
+    moeilijkheid_woorden = aantal_woorden / aantal_zinnen
+    moeilijkheid_tekens = aantal_spec_tekens / aantal_zinnen
+#     print("Het gemiddeld aantal woorden per zin is:", int(round(moeilijkheid_woorden,0)))
+#     print("Het gemiddeld aantal speciale tekens per zin is:", int(round(moeilijkheid_tekens,0)))
+    diff_woordenNYA.append(int(round(moeilijkheid_woorden,0)))
+    diff_tekensNYA.append(int(round(moeilijkheid_tekens,0)))
+
+# hier de printopdracht van de gemiddeldes in hele getallen
+import statistics
+print("Het gemiddeld aantal woorden per non YA boek is: ", int(round(statistics.mean(aantal_woorden_NYA))))
+print("Het gemiddeld aantal zinnen per non YA boek is: ", int(round(statistics.mean(aantal_zinnen_NYA))))
+print("Het gemiddeld aantal speciale tekens per non YA boek is: ", int(round(statistics.mean(speciale_tekens_NYA)))) 
+print("Het gemiddeld aantal woorden per zin per non YA boek is: ", int(round(statistics.mean(diff_woordenNYA))))
+print("Het gemiddeld aantal speciale tekens per zin per non YA boek is: ", int(round(statistics.mean(diff_tekensNYA))))
