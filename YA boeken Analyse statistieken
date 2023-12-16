@@ -1,0 +1,55 @@
+#Code voor YA boeken
+
+# Voor het bepalen van de lengte van zinnen, hoeveel zinnen en interpunctie
+from nltk.tokenize import sent_tokenize
+import string
+import collections as ct
+
+
+aantal_woorden_YA = []
+aantal_zinnen_YA = []
+speciale_tekens_YA = []
+diff_woordenYA = []
+diff_tekensYA = []
+
+for x in categorieYA:
+    file = Path.cwd() / categorie[0] / x
+    with open(file, 'r', encoding="utf8") as text:
+        textfile = text.read()
+        
+    # Lastig om tekst op te schonen, aangezien sommige boeken "Hoofdstuk" hanteren en sommige alleen het nummer. Dit is 
+    # niet uit te sluiten, omdat de kans hoog is dat je te veel van de tekst verwijdert.
+    # ISBN is een van de weinige overeenkomsten tussen alle boeken, daarom is dit prima uit te sluiten.
+    
+    # TEKSTVERWERKING: Verwijder ISBN uit iedere tekst
+    textfile.replace('ISBN', '')
+
+    # Tel het aantal woorden in de textfile
+    aantal_woorden = len(textfile.split())
+#     print("Het aantal woorden is:", aantal_woorden)
+    aantal_woorden_YA.append(aantal_woorden)
+
+    # Tel het aantal zinnen in de textfile
+    aantal_zinnen = len(sent_tokenize(textfile))
+#     print("Het aantal zinnen is:", aantal_zinnen)
+    aantal_zinnen_YA.append(aantal_zinnen)
+
+    # Tel het aantal speciale tekens in de textfile
+    special_chars = string.punctuation
+    aantal_spec_tekens = sum(v for k, v in ct.Counter(textfile).items() if k in special_chars)
+#     print("Het aantal speciale tekens is: ", aantal_spec_tekens)
+    speciale_tekens_YA.append(aantal_spec_tekens)
+
+    moeilijkheid_woorden = aantal_woorden / aantal_zinnen
+    moeilijkheid_tekens = aantal_spec_tekens / aantal_zinnen
+#     print("Het gemiddeld aantal woorden per zin is:", int(round(moeilijkheid_woorden,0)))
+#     print("Het gemiddeld aantal speciale tekens per zin is:", int(round(moeilijkheid_tekens,0)))
+    diff_woordenYA.append(int(round(moeilijkheid_woorden,0)))
+    diff_tekensYA.append(int(round(moeilijkheid_tekens,0)))
+
+import statistics
+print("Het gemiddeld aantal woorden per YA boek is: ", int(round(statistics.mean(aantal_woorden_YA))))
+print("Het gemiddeld aantal zinnen per YA boek is: ", int(round(statistics.mean(aantal_zinnen_YA))))
+print("Het gemiddeld aantal speciale tekens per YA boek is: ", int(round(statistics.mean(speciale_tekens_YA)))) 
+print("Het gemiddeld aantal woorden per zin per YA boek is: ", int(round(statistics.mean(diff_woordenYA))))
+print("Het gemiddeld aantal speciale tekens per zin per YA boek is: ", int(round(statistics.mean(diff_tekensYA))))
