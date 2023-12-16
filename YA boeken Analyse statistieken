@@ -5,13 +5,17 @@ from nltk.tokenize import sent_tokenize
 import string
 import collections as ct
 
-
+# Deze variabelen zijn lijsten die bedoeld zijn om statistieken op te slaan
+# De variabelen diff_woordenYA en diff_tekensYA zijn bedoeld om een verschil in woorden en tekens te berekenen tussen non YA-boeken
 aantal_woorden_YA = []
 aantal_zinnen_YA = []
 speciale_tekens_YA = []
 diff_woordenYA = []
 diff_tekensYA = []
 
+# Doorloopt elk element (x) in categorieYA 
+# Bouwt het bestandspad op met behulp van het huidige werkpad en de waarde van x
+# Opent  elk bijbehorend tekstbestand en leest de inhoud ervan in de variabele textfile
 for x in categorieYA:
     file = Path.cwd() / categorie[0] / x
     with open(file, 'r', encoding="utf8") as text:
