@@ -1,0 +1,20 @@
+# Lezen van boeken ahv directories
+from pathlib import Path
+import os
+
+# Er worden lijsten categorie, categorieYA, en categorieNYA gemaakt
+# De lijsten categorieYA en categorieNYA zijn leeg en zullen worden gebruikt om namen van bestanden op te slaan
+categorie = ['YA boeken', 'non YA boeken']
+categorieYA = []
+categorieNYA = []
+
+# Het leest de inhoud van de mappen 'YA boeken' en 'non YA boeken' binnen de huidige werkmap (Path.cwd()
+# Dit wordt gedaan met behulp van os.listdir() en Path.cwd() / categorie[0] (voor 'YA boeken') en Path.cwd() / categorie[1] (voor 'non YA boeken').
+folder = os.listdir(Path.cwd() / categorie[0])
+for y in folder:
+    categorieYA.append(y)
+folder = os.listdir(Path.cwd() / categorie[1])
+for y in folder:
+    categorieNYA.append(y)
+
+# Alle aparte tekstnamen zijn toegevoegd aan de desbetreffende categorie
