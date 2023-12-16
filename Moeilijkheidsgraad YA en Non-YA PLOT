@@ -1,0 +1,85 @@
+# SciPy en MatPlotLib voor het maken van de grafieken
+import scipy
+import matplotlib.pyplot as plt
+
+
+# AANTAL WOORDEN
+# Sorteert de lijst aantal_woorden_YA met het aantal woorden van YA-boeken en slaat deze op in y1
+# Sorteert de lijst aantal_woorden_NYA met het aantal woorden van non-YA-boeken en slaat deze op in y2
+# Variabele x = range(1,11) maakt een reeks getallen van 1 tot 10 en slaat deze op in x. Deze representeren de x-coördinaten van de punten op de plot
+y1 = sorted(aantal_woorden_YA)
+y2 = sorted(aantal_woorden_NYA)
+x = range(1,11)
+
+# Tekenen van een lijnplot waarbij x wordt gebruikt als de horizontale as (x-as) en y1 als de verticale as (y-as) voor de 'YA'-dataset
+# Tekenen van een tweede lijn waarbij x de horizontale as is en y2 de verticale as voor de 'NYA'-dataset
+# Het gebruik van '-.' betekent dat de lijn een gestippelde lijn is in plaats van een doorlopende lijn
+plt.plot(x, y1, label ='YA')
+plt.plot(x, y2, '-.', label ='NYA')
+
+plt.legend()
+plt.title('Aantal woorden')
+plt.show()
+
+print("De T-test waarden van het aantal woorden zijn: ")
+print(scipy.stats.ttest_ind(aantal_woorden_YA, aantal_woorden_NYA, equal_var=False))
+
+# AANTAL ZINNEN
+y1 = sorted(aantal_zinnen_YA)
+y2 = sorted(aantal_zinnen_NYA)
+x = range(1,11)
+
+plt.plot(x, y1, label ='YA')
+plt.plot(x, y2, '-.', label ='NYA')
+
+plt.legend()
+plt.title('Aantal zinnen')
+plt.show()
+
+print("De T-test waarden van het aantal zinnen zijn: ")
+print(scipy.stats.ttest_ind(aantal_zinnen_YA, aantal_zinnen_NYA, equal_var=False))
+
+# AANTAL SPECIALE TEKENS
+y1 = sorted(speciale_tekens_YA)
+y2 = sorted(speciale_tekens_NYA)
+x = range(1,11)
+
+plt.plot(x, y1, label ='YA')
+plt.plot(x, y2, '-.', label ='NYA')
+
+plt.legend()
+plt.title('Aantal speciale tekens')
+plt.show()
+
+print("De T-test waarden van het aantal speciale tekens zijn: ")
+print(scipy.stats.ttest_ind(speciale_tekens_YA, speciale_tekens_NYA, equal_var=False))
+
+# MOEILIJKHEID WOORDEN
+y1 = sorted(diff_woordenYA)
+y2 = sorted(diff_woordenNYA)
+x = range(1,11)
+
+plt.plot(x, y1, label ='YA')
+plt.plot(x, y2, '-.', label ='NYA')
+
+plt.legend()
+plt.title('Gemiddeld aantal woorden per zin')
+plt.show()
+
+print("De T-test waarden van het gemiddeld aantal woorden per zin zijn: ")
+print(scipy.stats.ttest_ind(diff_woordenYA, diff_woordenNYA, equal_var=False))
+
+# MOEILIJKHEID TEKENS
+y1 = sorted(diff_tekensYA)
+y2 = sorted(diff_tekensNYA)
+x = range(1,11)
+
+plt.plot(x, y1, label ='YA')
+plt.plot(x, y2, '-.', label ='NYA')
+
+plt.legend()
+plt.title('Gemiddeld aantal speciale tekens per zin')
+plt.show()
+
+print("De T-test waarden van het gemiddeld aantal speciale tekens per zin zijn: ")
+print(scipy.stats.ttest_ind(diff_tekensYA, diff_tekensNYA, equal_var=False))
