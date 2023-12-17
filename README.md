@@ -16,9 +16,13 @@ Externe modules die worden gebruikt zijn onder andere:
 
 -Matplotlib
 # Inhoud van de projectmap
-Jupiter Notebooks met code voor gegevensverzameling, -organisatie en -analyse.
-TXT-bestanden van zowel Young Adult als niet-Young Adult boeken.
-Python-scripts voor het analyseren van woord- en zinslengtes, en het uitvoeren van de T-test.
-Grafieken en visuele representaties van de resultaten met Matplotlib.
+De andere bestanden moeten in de volgende volgorde worden uitgevoerd:
+1) Boeknamen in categorien.txt map: Haalt bestandsnamen op in de mappen 'YA boeken' en 'non YA boeken' voor verdere verwerking en analyse. Zowel de YA als non YA boeken mvatten een reeks bestaande e-books, en werden verzameld via de Project Gutenberg-website en de online bibliotheek. 
+
+2) Ya boeken analyse statistieken map: Analyseert YA-boeken en berekent statistieken zoals aantal woorden, zinnen en speciale tekens, en het gemiddelde aantal woorden en speciale tekens per zin.
+
+3) Non-YA boeken analyse statistieken map: Voert soortgelijke analyses uit op non-YA-boeken en berekent statistieken voor deze categorie.
+
+4) Moeilijkheidsgraad tussen YA en Non-YA plot map: Gebruikt SciPy en Matplotlib om grafieken te genereren en T-tests uit te voeren voor verschillende statistieken tussen YA- en non-YA-boeken. Het visualiseert de gegevens en bepaalt of er significante verschillen zijn tussen de twee categorieën op basis van de uitgevoerde statistische tests.
 # Gebruik
 Anderen kunnen de code gebruiken door de Jupiter Notebooks en Python-scripts te openen in een omgeving met Jupiter Notebook en Python 3.x. Ze moeten ervoor zorgen dat de vereiste externe modules (Calibre, SciPy, Matplotlib) zijn geïnstalleerd. Door de code door te lopen, kunnen ze de stappen begrijpen die zijn genomen voor gegevensverzameling, -analyse en conclusievorming met betrekking tot de moeilijkheidsgraad van Young Adult en niet-Young Adult boeken.
