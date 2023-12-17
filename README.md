@@ -3,11 +3,14 @@
 Het project draait om het analyseren en vergelijken van de moeilijkheidsgraad tussen kinderboeken (niet-Young Adult) en jeugdboeken (Young Adult). Het maakt gebruik van Python om tekstbestanden van beide categorieën te verzamelen, analyseren en statistisch te vergelijken op basis van woord- en zinslengte, evenals de frequentie van speciale leestekens. De conclusie is gebaseerd op een T-test die aantoont of er een significant verschil is tussen de moeilijkheidsgraden van deze boeken.
 # Vereisten
 Externe modules die worden gebruikt zijn onder andere:
+
 -Jupiter Notebooks
 
 -Python 3.x
 
--NumPy
+-Calibre
+
+-Project Gutenberg
 
 -SciPy
 
