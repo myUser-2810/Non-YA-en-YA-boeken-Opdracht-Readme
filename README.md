@@ -17,7 +17,7 @@ Externe modules die worden gebruikt zijn onder andere:
 -Matplotlib
 # Inhoud van de projectmap
 De andere bestanden moeten in de volgende volgorde worden uitgevoerd:
-1) Boeknamen in categorien.txt map: Haalt bestandsnamen op in de mappen 'YA boeken' en 'non YA boeken' voor verdere verwerking en analyse. Zowel de YA als non YA boeken mvatten een reeks bestaande ebooks, en werden verzameld via de Project Gutenberg-website en de online bibliotheek. 
+1) Boeknamen in categorien.txt map: Haalt bestandsnamen op in de mappen 'YA boeken' en 'non YA boeken' voor verdere verwerking en analyse. Zowel de YA als non YA boeken omvatten een reeks bestaande ebooks, en werden verzameld via de Project Gutenberg-website en de online bibliotheek. 
 
 2) Ya boeken analyse statistieken map: Analyseert YA-boeken en berekent statistieken zoals aantal woorden, zinnen en speciale tekens, en het gemiddelde aantal woorden en speciale tekens per zin.
 
