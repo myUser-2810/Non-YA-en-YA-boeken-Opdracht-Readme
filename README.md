@@ -16,7 +16,7 @@ Externe modules die worden gebruikt zijn onder andere:
 
 -Matplotlib
 # Inhoud van de projectmap
-De andere bestanden moeten in de volgende volgorde worden uitgevoerd:
+De bestanden moeten in de volgende volgorde worden uitgevoerd:
 1) Data processing_nltk.py map: Maakt gebruik van de `os`-module om de huidige map op te halen en creëert een bestandspad voor een bestand genaamd 'data.csv'.
 Downloadt via de `nltk`-bibliotheek het 'punkt'-model dat wordt gebruikt voor zinsegmentatie (sent_tokenize) en het identificeren van leestekens in tekst. 
 
